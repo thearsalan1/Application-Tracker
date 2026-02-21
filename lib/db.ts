@@ -20,7 +20,7 @@ if(!global.mongoose){
 }
 
 async function connectDB(){
-  if(!cached.conn){
+  if(cached.conn){
     return cached.conn;
   }
 
@@ -33,6 +33,7 @@ async function connectDB(){
   if(!cached.promise){
     const opts ={
       bufferCommands:false,
+      maxPoolSize:5
     };
 
     cached.promise=  mongoose.connect(MONGODB_URI,opts).then((mongoose)=>{
