@@ -61,18 +61,18 @@ function DropableColumn({
           </div>
 
           <DropdownMenu>
-            <DropdownMenuTrigger>
-              <Button variant="ghost" size="icon">
-                <MoreVertical className="h-4 w-4" />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent>
-              <DropdownMenuItem className="flex items-center gap-2 text-red-600">
-                <Trash2 className="h-4 w-4" />
-                Delete column
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+  <DropdownMenuTrigger asChild>
+    <Button variant="ghost" size="icon">
+      <MoreVertical className="h-4 w-4" />
+    </Button>
+  </DropdownMenuTrigger>
+  <DropdownMenuContent>
+    <DropdownMenuItem className="flex items-center gap-2 text-red-600">
+      <Trash2 className="h-4 w-4" />
+      Delete column
+    </DropdownMenuItem>
+  </DropdownMenuContent>
+</DropdownMenu>
         </div>
       </CardHeader>
 
@@ -86,6 +86,8 @@ function DropableColumn({
 
 const KanbanBoard = ({board,userId}:kanbanBoardProps) => {
   const columns = board.columns;
+  console.log(columns[0].jobApplications);
+  
   return (
     <>
       <div className="flex gap-4 overflow-x-auto p-4">
